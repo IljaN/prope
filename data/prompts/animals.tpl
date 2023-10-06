@@ -1,0 +1,1 @@
+{{.Size}} {{.Colors}} colored {{.Animal}} wearing {{.Clothes}} , {{.Action}}, {{.Light}}
