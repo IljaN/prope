@@ -3,6 +3,7 @@ package prope
 import (
 	"bytes"
 	"github.com/IljaN/prope/dict"
+	"github.com/IljaN/prope/templates"
 	"log"
 	"regexp"
 	"text/template"
@@ -28,7 +29,7 @@ func NewPermutator(tplPathGlob string, dataPathGlob string) (*Permutator, error)
 		return nil, err
 	}
 
-	tpls := template.Must(template.New("base").ParseGlob(tplPathGlob))
+	tpls := template.Must(template.New("base").Funcs(templates.GetFuncMap()).ParseGlob(tplPathGlob))
 
 	// Alias numbered fields to the same data as the non-numbered field
 	for _, tpl := range tpls.Templates() {
