@@ -11,7 +11,8 @@ func TestNewPromptPermutator(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	tpls := pp.GenN(10, "animals.tpl")
 	tpls2 := pp.ForeachTemplateGen(10)
-	fmt.Println(tpls, tpls2)
+	for _, v := range tpls2 {
+		fmt.Println(v)
+	}
 }
