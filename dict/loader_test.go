@@ -55,12 +55,13 @@ func TestLoad(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
+		ttx := tt
+		t.Run(ttx.name, func(t *testing.T) {
 			t.Parallel()
-			res, err := Load(tt.filePaths...)
+			res, err := Load(ttx.filePaths...)
 			assert.NoError(t, err)
-			assert.Len(t, res, len(tt.expected))
-			for key, val := range tt.expected {
+			assert.Len(t, res, len(ttx.expected))
+			for key, val := range ttx.expected {
 				assert.Contains(t, res, key)
 				assert.ElementsMatch(t, res[key], val)
 			}
